@@ -1,0 +1,110 @@
+import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
+import { Rocket, ShieldCheck, Mail, Lock, ArrowRight } from 'lucide-react';
+
+const Login: React.FC = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  
+  const { login } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || '/dashboard';
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    
+    try {
+      await login({ email, password });
+      navigate(from, { replace: true });
+    } catch (error) {
+      console.error('Login failed:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
+      <div className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl w-full max-w-lg border border-gray-100 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-50 rounded-full -mr-16 -mt-16 z-0" />
+        <div className="absolute bottom-0 left-0 w-32 h-32 bg-brand-50 rounded-full -ml-16 -mb-16 z-0" />
+        
+        <div className="relative z-10">
+          <div className="flex flex-col items-center mb-10">
+            <div className="bg-brand-600 p-3 rounded-2xl shadow-lg shadow-brand-200 mb-6">
+              <Rocket className="w-8 h-8 text-white" />
+            </div>
+            <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight">Welcome Back</h1>
+            <p className="text-gray-500 mt-2 font-medium">Please enter your details to sign in</p>
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-2">
+              <label className="text-sm font-bold text-gray-700 tracking-wide uppercase px-1">Email Address</label>
+              <div className="relative group">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-brand-600 transition-colors">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full pl-11 pr-4 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:ring-4 focus:ring-brand-50 focus:border-brand-600 outline-none transition-all duration-300 font-medium placeholder-gray-400"
+                  placeholder="name@example.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <div className="flex justify-between items-center px-1">
+                <label className="text-sm font-bold text-gray-700 tracking-wide uppercase">Password</label>
+                <a href="#" className="text-xs font-bold text-brand-600 hover:text-brand-700 transition-colors">Forgot password?</a>
+              </div>
+              <div className="relative group">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-brand-600 transition-colors">
+                  <Lock className="w-5 h-5" />
+                </div>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full pl-11 pr-4 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:ring-4 focus:ring-brand-50 focus:border-brand-600 outline-none transition-all duration-300 font-medium placeholder-gray-400"
+                  placeholder="••••••••"
+                  required
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="w-full bg-brand-600 text-white font-bold py-4 rounded-xl hover:bg-brand-700 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-brand-100 disabled:opacity-70 disabled:cursor-not-allowed group"
+            >
+              {isLoading ? (
+                <div className="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin" />
+              ) : (
+                <>
+                  Sign In
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </>
+              )}
+            </button>
+          </form>
+
+          <div className="mt-10 flex items-center justify-center gap-3 text-sm font-medium text-gray-500">
+            <ShieldCheck className="w-4 h-4 text-green-500" />
+            Secure authentication by <%= projectName %>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;

@@ -1,0 +1,105 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Rocket, Shield, Layout, Palette } from 'lucide-react';
+
+const Home: React.FC = () => {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <header className="bg-white border-b px-6 py-4 flex justify-between items-center sticky top-0 z-50">
+        <div className="flex items-center gap-2">
+          <div className="bg-brand-600 p-2 rounded-lg">
+            <Rocket className="w-6 h-6 text-white" />
+          </div>
+          <span className="font-bold text-xl text-gray-900 tracking-tight"><%= projectName %></span>
+        </div>
+        <div className="flex gap-4">
+          <Link 
+            to="/login" 
+            className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-brand-600 transition-colors"
+          >
+            Sign In
+          </Link>
+          <Link 
+            to="/dashboard" 
+            className="px-4 py-2 bg-brand-600 text-white text-sm font-medium rounded-lg hover:bg-brand-700 transition-all shadow-sm hover:shadow-md"
+          >
+            Get Started
+          </Link>
+        </div>
+      </header>
+
+      <main>
+        <section className="px-6 py-20 max-w-7xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-6 tracking-tight">
+            Build Something <span className="text-brand-600">Extraordinary</span>
+          </h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10">
+            A production-ready React starter kit pre-configured with TailwindCSS, 
+            React Router, and Authentication context.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link 
+              to="/dashboard" 
+              className="px-8 py-4 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+              Explore Dashboard
+            </Link>
+            <a 
+              href="https://github.com/anointedthedeveloper/Developer-CLI-Tool" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-white text-gray-900 border border-gray-200 font-semibold rounded-xl hover:bg-gray-50 transition-all shadow-sm"
+            >
+              View Documentation
+            </a>
+          </div>
+        </section>
+
+        <section className="bg-white py-20">
+          <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12">
+            <FeatureCard 
+              icon={<Palette className="w-8 h-8 text-brand-600" />}
+              title="Modern Styling"
+              description="TailwindCSS 3.x pre-configured with a custom brand color palette and reusable UI patterns."
+            />
+            <FeatureCard 
+              icon={<Shield className="w-8 h-8 text-brand-600" />}
+              title="Secure Auth"
+              description="Built-in Authentication context with JWT pattern and route protection middleware."
+            />
+            <FeatureCard 
+              icon={<Layout className="w-8 h-8 text-brand-600" />}
+              title="Clean Architecture"
+              description="Modular folder structure designed for scalability and maintainable frontend development."
+            />
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t py-12 px-6">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-gray-500">
+            © 2024 <%= projectName %>. Built with Developer-CLI-Tool.
+          </p>
+          <div className="flex gap-8">
+            <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors">Privacy</a>
+            <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors">Terms</a>
+            <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors">Support</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+const FeatureCard: React.FC<{ icon: React.ReactNode, title: string, description: string }> = ({ icon, title, description }) => (
+  <div className="p-8 border border-gray-100 rounded-2xl bg-gray-50/50 hover:bg-white hover:shadow-xl hover:border-brand-100 transition-all duration-300">
+    <div className="bg-white w-14 h-14 rounded-xl flex items-center justify-center shadow-sm mb-6">
+      {icon}
+    </div>
+    <h3 className="text-xl font-bold text-gray-900 mb-3">{title}</h3>
+    <p className="text-gray-600 leading-relaxed">{description}</p>
+  </div>
+);
+
+export default Home;

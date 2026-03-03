@@ -1,0 +1,50 @@
+{
+  "name": "developer-cli-tool",
+  "version": "1.0.1",
+  "description": "Production-ready React + Tailwind + Router + Auth starter CLI",
+  "bin": {
+    "developer-cli-tool": "bin/index.js",
+    "dct": "bin/index.js"
+  },
+  "keywords": [
+    "react",
+    "tailwindcss",
+    "react-router",
+    "authentication",
+    "boilerplate",
+    "starter-kit",
+    "cli",
+    "vite"
+  ],
+  "author": "anointedthedeveloper",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anointedthedeveloper/Developer-CLI-Tool.git"
+  },
+  "bugs": {
+    "url": "https://github.com/anointedthedeveloper/Developer-CLI-Tool/issues"
+  },
+  "homepage": "https://github.com/anointedthedeveloper/Developer-CLI-Tool#readme",
+  "engines": {
+    "node": ">=14.16"
+  },
+  "preferGlobal": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0",
+    "ejs": "^3.1.9",
+    "execa": "^5.1.1",
+    "fs-extra": "^11.1.1",
+    "inquirer": "^8.2.5",
+    "ora": "^5.4.1",
+    "validate-npm-package-name": "^5.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.51.0",
+    "prettier": "^3.0.3"
+  }
+}
