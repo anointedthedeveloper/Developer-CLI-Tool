@@ -1,6 +1,6 @@
-# create-nexusapp 🚀
+# create-nexus-react-app 🚀
 
-[![npm version](https://img.shields.io/npm/v/create-nexusapp.svg)](https://www.npmjs.com/package/create-nexusapp)
+[![npm version](https://img.shields.io/npm/v/create-nexus-react-app.svg)](https://www.npmjs.com/package/create-nexus-react-app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Author](https://img.shields.io/badge/author-anointedthedeveloper-blue.svg)](https://github.com/anointedthedeveloper)
 
@@ -24,32 +24,32 @@ Setting up a modern React project with authentication, routing, and styling requ
 ## Quick Start 🏁
 
 ```bash
-npx create-nexusapp my-app
+npx create-nexus-react-app my-app
 # or
-npm create nexusapp my-app
+npm create nexus-react-app my-app
 ```
 
 ### Local Development (Source Code)
 
 ```bash
 npm link
-create-nexusapp my-app
+create-nexus-react-app my-app
 ```
 
 ## Advanced Usage 🛠️
 
 ```bash
 # Minimal template (no auth)
-create-nexusapp my-app --template minimal
+create-nexus-react-app my-app --template minimal
 
 # Skip prompts and use all defaults
-create-nexusapp my-app --yes
+create-nexus-react-app my-app --yes
 
 # Specify package manager
-create-nexusapp my-app --package-manager pnpm
+create-nexus-react-app my-app --package-manager pnpm
 
 # Force overwrite of existing directory
-create-nexusapp my-app --force
+create-nexus-react-app my-app --force
 ```
 
 ## What's Inside? 📦

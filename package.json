@@ -1,9 +1,9 @@
 {
-  "name": "create-nexusapp",
+  "name": "create-nexus-react-app",
   "version": "1.0.0",
   "description": "Production-ready React + Tailwind + Router + Auth starter CLI",
   "bin": {
-    "create-nexusapp": "bin/index.js"
+    "create-nexus-react-app": "bin/index.js"
   },
   "keywords": [
     "react",

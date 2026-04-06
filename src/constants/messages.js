@@ -1,6 +1,6 @@
 const messages = {
   WELCOME: `
-  🚀 Welcome to create-nexusapp
+  🚀 Welcome to create-nexus-react-app
   The ultimate React + Tailwind + Auth starter kit.
   Created by anointedthedeveloper — github.com/anointedthedeveloper
   `,
@@ -14,7 +14,7 @@ const messages = {
     cd ${projectName}
     npm run dev
 
-  Built with create-nexusapp by anointedthedeveloper
+  Built with create-nexus-react-app by anointedthedeveloper
   ⭐ Star us: github.com/anointedthedeveloper/Developer-CLI-Tool
   `,
   ERROR_DIR_NOT_EMPTY: 'Directory is not empty. Use --force to overwrite.',
