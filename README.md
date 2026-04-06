@@ -31,6 +31,12 @@ npx create-nexus-react-app my-app
 npm create nexus-react-app my-app
 ```
 
+Then:
+```bash
+cd my-app
+npm start
+```
+
 ### Local Development (Source Code)
 
 ```bash

@@ -12,6 +12,9 @@ const messages = {
   NEXT_STEPS: (projectName) => `
   Next steps:
     cd ${projectName}
+    npm start
+
+  Or use:
     npm run dev
 
   Built with create-nexus-react-app by anointedthedeveloper
