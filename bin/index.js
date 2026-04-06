@@ -18,7 +18,7 @@ program
   .command('init')
   .description('Initialize a new production-ready React project')
   .argument('[project-name]', 'Name of the project to create')
-  .option('-t, --template <template>', 'Template to use (basic, minimal)', 'basic')
+  .option('-t, --template <template>', 'Template to use (premium, minimal)', 'premium')
   .option('-p, --package-manager <manager>', 'Package manager to use (npm, yarn, pnpm)', 'npm')
   .option('-y, --yes', 'Skip prompts and use defaults', false)
   .option('-g, --git', 'Initialize git repository', true)

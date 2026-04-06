@@ -59,10 +59,10 @@ const initCommand = async (projectName, options) => {
           name: 'template',
           message: 'Select a template:',
           choices: [
-            { name: 'Premium (with Auth + Dashboard)', value: 'basic' },
+            { name: 'Premium (with Auth + Dashboard)', value: 'premium' },
             { name: 'Minimal (no Auth)', value: 'minimal' }
           ],
-          default: 'basic',
+          default: 'premium',
           when: !options.template
         },
         {
@@ -93,7 +93,7 @@ const initCommand = async (projectName, options) => {
     } else {
       // Defaults for --yes
       finalOptions = {
-        template: options.template || 'basic',
+        template: options.template || 'premium',
         packageManager: options.packageManager || 'npm',
         git: options.git !== false,
         install: options.install !== false,
