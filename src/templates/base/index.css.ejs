@@ -3,19 +3,13 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --brand: #3d4dff;
-    --brand-hover: #2124ff;
-    --brand-light: #ebf0ff;
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
     @apply antialiased text-gray-900 bg-white;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply tracking-tight;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
   }
 }
 
@@ -29,19 +23,10 @@
   }
 
   .input-field {
-    @apply w-full px-4 py-3 bg-gray-50 border border-gray-100 rounded-xl focus:bg-white focus:ring-4 focus:ring-brand-50 focus:border-brand-600 outline-none transition-all font-medium placeholder-gray-400;
+    @apply w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-4 focus:ring-brand-50 focus:border-brand-600 outline-none transition-all font-medium placeholder-gray-400;
   }
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-gray-200 rounded-full border-4 border-transparent bg-clip-content hover:bg-gray-300 transition-colors;
-}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { @apply bg-transparent; }
+::-webkit-scrollbar-thumb { @apply bg-gray-200 rounded-full hover:bg-gray-300 transition-colors; }

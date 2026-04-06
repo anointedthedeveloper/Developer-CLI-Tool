@@ -1,6 +1,6 @@
-# create-nexus 🚀
+# create-nexus-app 🚀
 
-[![npm version](https://img.shields.io/npm/v/create-nexus.svg)](https://www.npmjs.com/package/create-nexus)
+[![npm version](https://img.shields.io/npm/v/create-nexus-app.svg)](https://www.npmjs.com/package/create-nexus-app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Author](https://img.shields.io/badge/author-anointedthedeveloper-blue.svg)](https://github.com/anointedthedeveloper)
 
@@ -24,32 +24,32 @@ Setting up a modern React project with authentication, routing, and styling requ
 ## Quick Start 🏁
 
 ```bash
-npx create-nexus my-app
+npx create-nexus-app my-app
 # or
-npm create nexus my-app
+npm create nexus-app my-app
 ```
 
 ### Local Development (Source Code)
 
 ```bash
 npm link
-create-nexus my-app
+create-nexus-app my-app
 ```
 
 ## Advanced Usage 🛠️
 
 ```bash
 # Minimal template (no auth)
-create-nexus my-app --template minimal
+create-nexus-app my-app --template minimal
 
 # Skip prompts and use all defaults
-create-nexus my-app --yes
+create-nexus-app my-app --yes
 
 # Specify package manager
-create-nexus my-app --package-manager pnpm
+create-nexus-app my-app --package-manager pnpm
 
 # Force overwrite of existing directory
-create-nexus my-app --force
+create-nexus-app my-app --force
 ```
 
 ## What's Inside? 📦
