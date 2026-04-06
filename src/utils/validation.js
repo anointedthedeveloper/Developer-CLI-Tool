@@ -22,16 +22,17 @@ const validateProjectName = (name) => {
  * @returns {Promise<boolean>}
  */
 const isDirectoryEmpty = async (projectPath, force = false) => {
-  if (!fs.existsSync(projectPath)) {
+  if (!fs.existsSync(projectPath)) return true;
+
+  const files = await fs.readdir(projectPath);
+  if (files.length === 0) return true;
+
+  if (force) {
+    await fs.emptyDir(projectPath);
     return true;
   }
 
-  const files = await fs.readdir(projectPath);
-  if (files.length > 0 && !force) {
-    return false;
-  }
-  
-  return true;
+  return false;
 };
 
 module.exports = {
