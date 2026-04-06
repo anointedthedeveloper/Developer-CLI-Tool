@@ -7,8 +7,6 @@ yarn-debug.log*
 yarn-error.log*
 logs
 *.log
-.zencoder/
-.zenflow
 my-project/
 *.tgz
 PUBLISHING.md
