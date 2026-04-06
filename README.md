@@ -1,6 +1,6 @@
-# developer-cli-tool 🚀
+# create-nexus 🚀
 
-[![npm version](https://img.shields.io/npm/v/developer-cli-tool.svg)](https://www.npmjs.com/package/developer-cli-tool)
+[![npm version](https://img.shields.io/npm/v/create-nexus.svg)](https://www.npmjs.com/package/create-nexus)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Author](https://img.shields.io/badge/author-anointedthedeveloper-blue.svg)](https://github.com/anointedthedeveloper)
 
@@ -23,39 +23,33 @@ Setting up a modern React project with authentication, routing, and styling requ
 
 ## Quick Start 🏁
 
-You can use the CLI anywhere on your machine without installing it first:
-
 ```bash
-# Initialize a new project from anywhere
-npx developer-cli-tool init my-app
+npx create-nexus my-app
+# or
+npm create nexus my-app
 ```
 
 ### Local Development (Source Code)
 
-If you have cloned this repository and want to test it locally:
-
 ```bash
-# From the project root
 npm link
-developer-cli-tool init nexus-app
+create-nexus my-app
 ```
 
 ## Advanced Usage 🛠️
 
-The `init` command supports several flags for CI/CD or specific needs:
-
 ```bash
 # Minimal template (no auth)
-dct init my-app --template minimal
+create-nexus my-app --template minimal
 
 # Skip prompts and use all defaults
-dct init my-app --yes
+create-nexus my-app --yes
 
 # Specify package manager
-dct init my-app --package-manager pnpm
+create-nexus my-app --package-manager pnpm
 
 # Force overwrite of existing directory
-dct init my-app --force
+create-nexus my-app --force
 ```
 
 ## What's Inside? 📦
@@ -63,7 +57,7 @@ dct init my-app --force
 The generated project follows a clean, modular structure:
 
 ```text
-nexus-app/
+my-app/
 ├── public/              # Static assets
 ├── src/
 │   ├── assets/          # Images, icons, etc.
@@ -88,7 +82,7 @@ nexus-app/
 
 | Flag | Description | Default |
 |------|-------------|---------|
-| `-t, --template` | Template to use (`premium`, `minimal`) | `premium` |
+| `-t, --template` | Template to use (`basic`, `minimal`) | `basic` |
 | `-p, --package-manager` | `npm`, `yarn`, or `pnpm` | `npm` |
 | `-y, --yes` | Skip interactive prompts | `false` |
 | `-g, --git` | Initialize git repository | `true` |
