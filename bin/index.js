@@ -7,7 +7,7 @@ const { handleError } = require('../src/utils/errors');
 const logger = require('../src/utils/logger');
 
 program
-  .name('create-nexus-app')
+  .name('create-nexusapp')
   .description('Production-ready React + Tailwind + Router + Auth starter CLI')
   .version(pkg.version)
   .argument('[project-name]', 'Name of the project to create')
