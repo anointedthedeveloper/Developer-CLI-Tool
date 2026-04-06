@@ -120,7 +120,6 @@ const initCommand = async (projectName, options) => {
     if (finalOptions.install) {
       spinner.info(messages.INSTALLING);
       await installDependencies(projectPath, finalOptions.packageManager);
-      spinner.succeed('Dependencies installed successfully.');
     }
 
     // 8. Success Message

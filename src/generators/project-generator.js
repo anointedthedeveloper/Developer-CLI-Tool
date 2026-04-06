@@ -1,8 +1,13 @@
 const path = require('path');
 const fs = require('fs-extra');
+const cliProgress = require('cli-progress');
+const chalk = require('chalk');
 const { processTemplate } = require('./file-generator');
-const spinner = require('../utils/spinner');
-const messages = require('../constants/messages');
+
+const formatTime = (ms) => {
+  if (ms < 1000) return `${ms}ms`;
+  return `${(ms / 1000).toFixed(1)}s`;
+};
 
 /**
  * Orchestrates project scaffolding
@@ -11,16 +16,12 @@ const messages = require('../constants/messages');
 const generateProject = async (config) => {
   const { projectName, projectPath, template, auth } = config;
   const templateBaseDir = path.join(__dirname, '../templates');
-  
-  spinner.start(messages.SCAFFOLDING);
 
-  // Template data for EJS
   const data = {
     projectName,
     auth: template !== 'minimal' && auth !== false,
   };
 
-  // Files to process (always included)
   const filesToProcess = [
     { src: 'base/package.json.ejs', dest: 'package.json' },
     { src: 'base/vite.config.ts.ejs', dest: 'vite.config.ts' },
@@ -38,7 +39,6 @@ const generateProject = async (config) => {
     { src: 'base/api.ts.ejs', dest: 'src/services/api.ts' },
   ];
 
-  // Optional: Add auth-related files
   if (data.auth) {
     filesToProcess.push(
       { src: 'auth/AuthContext.tsx.ejs', dest: 'src/contexts/AuthContext.tsx' },
@@ -48,52 +48,55 @@ const generateProject = async (config) => {
     );
   }
 
-  // Scaffold the project
+  const dirsToCreate = [
+    'src/assets', 'src/components/ui', 'src/components/layout',
+    'src/components/forms', 'src/hooks', 'src/utils', 'src/types', 'public'
+  ];
+
+  const totalSteps = filesToProcess.length + dirsToCreate.length + 4; // +4 for env/gitignore writes
+  const startTime = Date.now();
+
+  const bar = new cliProgress.SingleBar({
+    format: chalk.cyan(' Scaffolding') + ' |' + chalk.cyan('{bar}') + '| {percentage}%  {file}  ' +
+      chalk.yellow('⏱ {spent}') + '  ' + chalk.dim('ETA {eta}'),
+    barCompleteChar: '█',
+    barIncompleteChar: '░',
+    hideCursor: true,
+    etaBuffer: 5,
+    fps: 15,
+  }, cliProgress.Presets.shades_classic);
+
+  bar.start(totalSteps, 0, { file: '', spent: '0s', eta: '?' });
+
+  const tick = (label) => {
+    const spent = formatTime(Date.now() - startTime);
+    bar.increment(1, { file: chalk.dim(label), spent });
+  };
+
   for (const file of filesToProcess) {
     const srcPath = path.join(templateBaseDir, file.src);
     const destPath = path.join(projectPath, file.dest);
     await processTemplate(srcPath, destPath, data);
+    tick(file.dest);
   }
-
-  // Create empty directories
-  const dirsToCreate = [
-    'src/assets',
-    'src/components/ui',
-    'src/components/layout',
-    'src/components/forms',
-    'src/hooks',
-    'src/utils',
-    'src/types',
-    'public'
-  ];
 
   for (const dir of dirsToCreate) {
     await fs.ensureDir(path.join(projectPath, dir));
+    tick(dir + '/');
   }
 
-  // Add .env files
   const envContent = 'VITE_API_URL=http://localhost:3000/api\n';
-  await fs.writeFile(path.join(projectPath, '.env.example'), envContent);
-  await fs.writeFile(path.join(projectPath, '.env.development'), envContent);
-  await fs.writeFile(path.join(projectPath, '.env.production'), envContent);
+  await fs.writeFile(path.join(projectPath, '.env.example'), envContent); tick('.env.example');
+  await fs.writeFile(path.join(projectPath, '.env.development'), envContent); tick('.env.development');
+  await fs.writeFile(path.join(projectPath, '.env.production'), envContent); tick('.env.production');
 
-  // Add .gitignore
-  const gitignore = `
-node_modules
-dist
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.DS_Store
-`;
-  await fs.writeFile(path.join(projectPath, '.gitignore'), gitignore.trim());
+  const gitignore = `node_modules\ndist\n.env\n.env.local\n.env.development.local\n.env.test.local\n.env.production.local\nnpm-debug.log*\nyarn-debug.log*\nyarn-error.log*\n.DS_Store`;
+  await fs.writeFile(path.join(projectPath, '.gitignore'), gitignore); tick('.gitignore');
 
-  spinner.succeed('Project files scaffolded successfully.');
+  bar.stop();
+
+  const totalTime = formatTime(Date.now() - startTime);
+  console.log(chalk.green(`\n ✔ Project files scaffolded in ${totalTime}\n`));
 };
 
 module.exports = {
