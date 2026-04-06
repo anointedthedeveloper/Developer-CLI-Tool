@@ -88,7 +88,7 @@ nexus-app/
 
 | Flag | Description | Default |
 |------|-------------|---------|
-| `-t, --template` | Template to use (`basic`, `minimal`) | `basic` |
+| `-t, --template` | Template to use (`premium`, `minimal`) | `premium` |
 | `-p, --package-manager` | `npm`, `yarn`, or `pnpm` | `npm` |
 | `-y, --yes` | Skip interactive prompts | `false` |
 | `-g, --git` | Initialize git repository | `true` |
