@@ -29,13 +29,13 @@ const initCommand = async (projectName, options) => {
           type: 'input',
           name: 'name',
           message: 'Project name:',
-          default: 'hover-app',
+          default: 'nexus-app',
           validate: validateProjectName
         }
       ]);
       finalProjectName = name;
     } else if (!finalProjectName) {
-      finalProjectName = 'hover-app';
+      finalProjectName = 'nexus-app';
     }
 
     const projectPath = path.resolve(process.cwd(), finalProjectName);
@@ -59,7 +59,7 @@ const initCommand = async (projectName, options) => {
           name: 'template',
           message: 'Select a template:',
           choices: [
-            { name: 'Standard (with Auth)', value: 'basic' },
+            { name: 'Premium (with Auth + Dashboard)', value: 'basic' },
             { name: 'Minimal (no Auth)', value: 'minimal' }
           ],
           default: 'basic',
@@ -126,7 +126,7 @@ const initCommand = async (projectName, options) => {
     logger.success(messages.SUCCESS(finalProjectName));
     logger.info(messages.NEXT_STEPS(finalProjectName));
     logger.dim('\nBuild something extraordinary with Developer-CLI-Tool! 🚀');
-    logger.dim('Created by anointedthedeveloper');
+    logger.dim('Created by anointedthedeveloper — github.com/anointedthedeveloper');
 
   } catch (err) {
     throw err;

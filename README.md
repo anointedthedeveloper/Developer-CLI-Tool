@@ -37,7 +37,7 @@ If you have cloned this repository and want to test it locally:
 ```bash
 # From the project root
 npm link
-developer-cli-tool init hover-app
+developer-cli-tool init nexus-app
 ```
 
 ## Advanced Usage 🛠️
@@ -63,7 +63,7 @@ dct init my-app --force
 The generated project follows a clean, modular structure:
 
 ```text
-hover-app/
+nexus-app/
 ├── public/              # Static assets
 ├── src/
 │   ├── assets/          # Images, icons, etc.
