@@ -26,6 +26,7 @@ const generateProject = async (config) => {
     { src: 'base/package.json.ejs', dest: 'package.json' },
     { src: 'base/vite.config.ts.ejs', dest: 'vite.config.ts' },
     { src: 'base/tailwind.config.js.ejs', dest: 'tailwind.config.js' },
+    { src: 'base/postcss.config.js.ejs', dest: 'postcss.config.js' },
     { src: 'base/tsconfig.json.ejs', dest: 'tsconfig.json' },
     { src: 'base/tsconfig.node.json.ejs', dest: 'tsconfig.node.json' },
     { src: 'base/eslintrc.cjs.ejs', dest: '.eslintrc.cjs' },
