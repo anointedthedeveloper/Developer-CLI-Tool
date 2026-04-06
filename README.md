@@ -1,8 +1,10 @@
 # create-nexus-react-app 🚀
 
 [![npm version](https://img.shields.io/npm/v/create-nexus-react-app.svg)](https://www.npmjs.com/package/create-nexus-react-app)
+[![npm downloads](https://img.shields.io/npm/dm/create-nexus-react-app.svg)](https://www.npmjs.com/package/create-nexus-react-app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Author](https://img.shields.io/badge/author-anointedthedeveloper-blue.svg)](https://github.com/anointedthedeveloper)
+[![npx](https://img.shields.io/badge/npx-create--nexus--react--app-brightgreen.svg)](https://www.npmjs.com/package/create-nexus-react-app)
 
 **Production-grade, developer-first CLI tool for bootstrapping React applications with zero configuration fatigue.**
 
