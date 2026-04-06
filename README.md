@@ -2,8 +2,11 @@
 
 [![npm version](https://img.shields.io/npm/v/developer-cli-tool.svg)](https://www.npmjs.com/package/developer-cli-tool)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Author](https://img.shields.io/badge/author-anointedthedeveloper-blue.svg)](https://github.com/anointedthedeveloper)
 
 **Production-grade, developer-first CLI tool for bootstrapping React applications with zero configuration fatigue.**
+
+> Designed and built by [**anointedthedeveloper**](https://github.com/anointedthedeveloper)
 
 ## The Problem
 Setting up a modern React project with authentication, routing, and styling requires 30+ minutes of configuration. Every project needs the same setup. This CLI eliminates that setup time by providing a premium, opinionated starter kit.
@@ -99,6 +102,12 @@ hover-app/
 - [ ] Docker development environment
 - [ ] CI/CD pipeline templates (GitHub Actions)
 
+## Author 👤
+
+Created and maintained by [**anointedthedeveloper**](https://github.com/anointedthedeveloper).
+
+If this tool saved you time, consider giving it a ⭐ on [GitHub](https://github.com/anointedthedeveloper/Developer-CLI-Tool) — it means a lot!
+
 ## Contributing 🤝
 Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
@@ -106,4 +115,8 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 MIT © [anointedthedeveloper](https://github.com/anointedthedeveloper)
 
 ---
-Built with ❤️ by **anointedthedeveloper**
+
+<p align="center">
+  Built with ❤️ by <a href="https://github.com/anointedthedeveloper"><strong>anointedthedeveloper</strong></a><br/>
+  <sub>If you find this useful, a ⭐ on GitHub goes a long way 🙏</sub>
+</p>
